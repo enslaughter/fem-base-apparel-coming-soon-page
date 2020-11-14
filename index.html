@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600" rel="stylesheet">
+
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    html{
+      width: 100vw;
+      height: 100vh;
+      padding: 0;
+    }
+
+    body{
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 16px;
+
+      min-width: inherit;
+      min-height: inherit;
+
+      padding: 0;
+
+      color: hsl(0, 36%, 70%);
+
+
+    }
+    .mobile-logo{
+      display:none;
+    }
+    .main-container{
+      display: flex;
+      flex-direction: row;
+    }
+    .info-container{
+      background-image: url("images/bg-pattern-desktop.svg");
+      background-size: 100% 100%;
+      padding: 5vh 10%;
+      flex: 1 1 auto;
+    }
+
+    .info-header{
+      text-transform: uppercase;
+      font-size: 7vh;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+    }
+
+    .info-body{
+      font-weight: 400;
+      line-height: 150%;
+    }
+    .email-input > form{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 0;
+      border: 1px solid hsl(0, 36%, 70%);
+      border-radius: 30px;
+      background: transparent;
+      margin: 0;
+    }
+
+    .email-input > form:focus-within{
+      border: 2px solid hsl(0, 6%, 24%);
+      border-radius: 30px;
+    }
+
+    input[type="text"]{
+      color: hsl(0, 36%, 70%);
+      font-family: "Josefin Sans", sans-serif;
+      border: none;
+      padding-left: 25px;
+      flex: 1 0 auto;
+      background: transparent;
+
+    }
+
+    input[type="text"]:focus{
+      outline: 0;
+      outline-style: none;
+      color: hsl(0, 6%, 24%);
+      font-weight: 600;
+      background: transparent;
+    }
+
+    input:focus{
+      outline: 0;
+      outline-style: none;
+    }
+
+    ::placeholder{
+      color: hsl(0, 36%, 70%);
+      font-weight: 600;
+      font-family: "Josefin Sans", sans-serif;
+    }
+
+    .submit-button{
+      border-radius: 25px;
+      padding: 10px 15px;
+      width: 90px;
+      outline: 0;
+      outline-style: none;
+      border: none;
+      background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    }
+
+    .submit-button:hover {
+      background-image:none;
+      background-color: hsl(0, 80%, 86%);
+      cursor: pointer;
+    }
+
+
+    #error-message{
+      color: hsl(0, 93%, 68%);
+      font-size: small;
+      padding-left: 20px;
+      font-weight: 600;
+      display:none;
+    }
+
+    #valid-message{
+      color: hsl(0, 36%, 70%);
+      font-size: small;
+      padding-left: 20px;
+      font-weight: 600;
+      display:none;
+    }
+
+    .image-hero{
+      object-fit: scale-down;
+      width: inherit;
+      height: inherit;
+
+      flex: 1 1 auto;
+    }
+    @media screen and (max-width: 480px){
+      .main-container{
+        flex-direction: column-reverse;
+      }
+      .info-container{
+        background-size: 0% 0%;
+        padding: 5vh 5vh;
+      }
+
+      .info-header{
+        text-align: center;
+      }
+
+      .info-body{
+        text-align: center;
+      }
+
+      .desktop-logo{
+        display: none;
+      }
+      .mobile-logo{
+        display: block;
+        padding: 10vw;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="mobile-logo">
+    <img src="images/logo.svg">
+  </div>
+
+  <div class="main-container">
+    <div class="info-container">
+      <div class="desktop-logo">
+        <img src="images/logo.svg">
+      </div>
+
+      <div class="info-text">
+        <p class="info-header">We're<span style="color: hsl(0, 6%, 24%); font-weight: 600;"><br>coming<br>soon</span></p>
+
+        <p class="info-body">Hello fellow shoppers! We're currently building our new fashion store.
+        Add your email below to stay up-to-date with announcements and our launch deals. </p>
+      </div>
+
+      <div class="email-input">
+        <form id="emailForm" name="emailForm" action="#" method="GET">
+          <input type="text" id="app-email" name="app-email" placeholder="Email Address" style="outline: 0;">
+          <button type="button" class="submit-button" onclick="validateForm()" style="outline: 0;"> <img src="images/icon-arrow.svg"> </button>
+        </form>
+
+        <p id="error-message"> Please provide a valid email </p>
+        <p id="valid-message"> Thanks for signing up! </p>
+
+      </div>
+    </div>
+
+    <div class="image-hero">
+      <picture>
+        <source srcset="images/hero-mobile.jpg" media="(max-width: 480px)">
+        <source srcset="images/hero-desktop.jpg">
+        <img src="images/hero-desktop.jpg" alt="Hero">
+      </picture>
+    </div>
+
+  </div>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Eli Slaughter</a>.
+    </p>
+  </footer>
+
+  <script>
+  function validateForm(){
+    var errorMessage = document.getElementById("error-message");
+    var validMessage = document.getElementById("valid-message");
+    var jsemailForm = document.getElementById("emailForm");
+    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if(document.forms["emailForm"]["app-email"].value.match(mailformat)){
+      errorMessage.style.display = "none";
+      validMessage.style.display = "block";
+      jsemailForm.style.borderColor="hsl(0, 36%, 70%);"
+      }
+
+    else{
+      errorMessage.style.display = "block";
+      validMessage.style.display = "none";
+      jsemailForm.style.borderColor="hsl(0, 93%, 68%);"
+    }
+  }
+  </script>
+</body>
+</html>
